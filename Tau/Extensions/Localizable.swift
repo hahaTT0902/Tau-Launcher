@@ -1,0 +1,86 @@
+//
+//  Localizable.swift
+//  Tau
+//
+//  Created by AnemoFlower on 2025/12/11.
+//
+
+import Foundation
+import Core
+
+// 为 Tau.Core 中的一些枚举类扩展本地化名或图标，以在 SwiftUI 中显示。
+
+protocol Localizable {
+    var localizedName: String { get }
+}
+
+extension MinecraftVersion.VersionType: Localizable {
+    var icon: String {
+        switch self {
+        case .release: "GrassBlock"
+        case .snapshot: "Dirt"
+        case .old: "Cobblestone"
+        case .aprilFool: "GoldBlock"
+        }
+    }
+    
+    var localizedName: String {
+        switch self {
+        case .release: "正式版"
+        case .snapshot: "快照版"
+        case .old: "远古版"
+        case .aprilFool: "愚人节版"
+        }
+    }
+}
+
+extension SubTaskState {
+    var image: String {
+        switch self {
+        case .waiting: "TaskWaiting"
+        case .executing: ""
+        case .finished: "TaskFinished"
+        case .failed: "TaskWaiting"
+        }
+    }
+}
+
+extension AccountType: Localizable {
+    var localizedName: String {
+        switch self {
+        case .offline: "离线账号"
+        case .microsoft: "正版账号"
+        }
+    }
+}
+
+extension ModrinthProjectType: Localizable {
+    var localizedName: String {
+        switch self {
+        case .mod: "模组"
+        case .modpack: "整合包"
+        case .resourcepack: "资源包"
+        case .shader: "光影包"
+        }
+    }
+}
+
+extension ModrinthVersion.VersionType: Localizable {
+    var localizedName: String {
+        switch self {
+        case .release: "正式版"
+        case .beta: "测试版"
+        case .alpha: "早期测试版"
+        }
+    }
+}
+
+extension ModLoader {
+    var icon: String {
+        switch self {
+        case .fabric: "Fabric"
+        case .forge: "Forge"
+        case .neoforge: "Neoforge"
+        }
+    }
+}
