@@ -1,9 +1,3 @@
-//
-//  AppRouter.swift
-//  Tau
-//
-//
-
 import SwiftUI
 import Core
 
@@ -105,7 +99,6 @@ class AppRouter: ObservableObject {
         }
     }
     
-    /// 当前页面是不是子页面（需要显示返回键和标题，隐藏导航按钮）
     var isSubPage: Bool {
         switch getLast() {
         case .tasks: true
@@ -117,7 +110,6 @@ class AppRouter: ObservableObject {
         }
     }
     
-    /// 当前子页面的标题
     var title: String {
         switch getLast() {
         case .tasks: "任务列表"
@@ -141,7 +133,6 @@ class AppRouter: ObservableObject {
     func setRoot(_ newRoot: AppRoute) {
         withAnimation(routeSwitchAnimation) {
             path = [newRoot]
-            // 各根页面的默认子页面
             if newRoot == .download { path.append(.minecraftDownload) }
             if newRoot == .multiplayer { path.append(.multiplayerSub) }
             if newRoot == .settings { path.append(.javaSettings) }

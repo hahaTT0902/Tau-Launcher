@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Tau
-//
-//  Created by AnemoFlower on 2025/11/8.
-//
-
 import Foundation
 import AppKit
 import Core
